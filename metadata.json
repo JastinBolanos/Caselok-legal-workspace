@@ -1,0 +1,6 @@
+{
+  "name": "Caselok LegalTech Workspace",
+  "description": "Sistema corporativo de gestión de casos, control de horas facturables y bóveda documental para firmas de abogados y bufetes corporativos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
