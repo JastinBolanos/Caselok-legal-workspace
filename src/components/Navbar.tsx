@@ -4,14 +4,12 @@ import {
   Layers, 
   FolderLock, 
   Clock, 
-  Sparkles, 
   Home, 
   Building2, 
   ChevronDown,
   Calendar,
   BarChart3,
   Users,
-  SearchCheck,
   Globe,
   Landmark,
   Sliders
@@ -28,8 +26,8 @@ interface NavbarProps {
   activeView: AppNavView;
   onSelectView: (view: AppNavView) => void;
   onOpenWelcome: () => void;
-  onOpenCopilot: () => void;
-  onOpenConflictModal: () => void;
+  onOpenCopilot?: () => void;
+  onOpenConflictModal?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -38,8 +36,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   activeView,
   onSelectView,
   onOpenWelcome,
-  onOpenCopilot,
-  onOpenConflictModal,
 }) => {
   const [showFirmMenu, setShowFirmMenu] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
@@ -209,12 +205,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </nav>
 
-          {/* Right: Quick Tools & Language Switcher & AI Copilot */}
+          {/* Right: Quick Tools & Language Switcher & Home Button */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             {/* Language Switcher Button */}
             <button
               onClick={toggleLanguage}
-              className="whitespace-nowrap flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-md bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer shadow-xs"
+              className="whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer shadow-xs"
               title={language === 'es' ? 'Cambiar a English (EN)' : 'Switch to Español (ES)'}
             >
               <Globe className="w-3.5 h-3.5 text-amber-400 shrink-0" />
@@ -222,27 +218,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="text-[10px] text-slate-400 hidden xl:inline">({language === 'es' ? 'Español' : 'English'})</span>
             </button>
 
-            <button
-              onClick={onOpenConflictModal}
-              title={language === 'es' ? "Comprobación Deontológica de Conflicto de Interés" : "Deontological Conflict of Interest Check"}
-              className="whitespace-nowrap flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-md bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer"
-            >
-              <SearchCheck className="w-3.5 h-3.5 text-slate-300 shrink-0" />
-              <span className="hidden sm:inline text-xs">{t('nav.conflictCheck')}</span>
-            </button>
-
-            <button
-              onClick={onOpenCopilot}
-              className="whitespace-nowrap flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-              <span className="hidden md:inline text-xs">{t('nav.aiCopilot')}</span>
-            </button>
-
+            {/* Home / Welcome Portal Button (Kept in place) */}
             <button
               onClick={onOpenWelcome}
               title={language === 'es' ? "Pantalla de Bienvenida y Portal" : "Welcome Portal"}
-              className="p-2 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700 transition cursor-pointer shrink-0"
+              className="p-2 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition cursor-pointer shrink-0"
             >
               <Home className="w-4 h-4" />
             </button>

@@ -100,6 +100,11 @@ export default function App() {
             onSelectCase={(caseItem) => setSelectedCaseDetail(caseItem)}
             onUpdateCaseStage={handleUpdateCaseStage}
             onCreateNewCase={handleCreateNewCase}
+            onOpenConflictModal={() => {
+              setConflictSearchQuery('');
+              setShowConflictModal(true);
+            }}
+            onOpenCopilot={() => setShowCopilotModal(true)}
           />
         )}
 

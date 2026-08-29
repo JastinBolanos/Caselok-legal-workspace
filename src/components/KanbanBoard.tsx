@@ -8,7 +8,9 @@ import {
   Gavel, 
   Building, 
   ChevronRight, 
-  ChevronLeft
+  ChevronLeft,
+  SearchCheck,
+  Sparkles
 } from 'lucide-react';
 import { LegalCase, CaseStageId, JurisdictionType, PriorityLevel } from '../types';
 import { KANBAN_STAGES } from '../data/mockData';
@@ -19,6 +21,8 @@ interface KanbanBoardProps {
   onSelectCase: (caseItem: LegalCase) => void;
   onUpdateCaseStage: (caseId: string, newStageId: CaseStageId) => void;
   onCreateNewCase: (newCase: Omit<LegalCase, 'id' | 'loggedHours'>) => void;
+  onOpenConflictModal?: () => void;
+  onOpenCopilot?: () => void;
 }
 
 export const KanbanBoard: React.FC<KanbanBoardProps> = ({
@@ -26,6 +30,8 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
   onSelectCase,
   onUpdateCaseStage,
   onCreateNewCase,
+  onOpenConflictModal,
+  onOpenCopilot,
 }) => {
   const { 
     language, 
@@ -177,14 +183,39 @@ export const KanbanBoard: React.FC<KanbanBoardProps> = ({
             </select>
           </div>
 
-          {/* New Case Button */}
-          <button
-            onClick={() => setShowNewCaseModal(true)}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-md bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide shadow-xs active:scale-98 transition ml-auto cursor-pointer"
-          >
-            <Plus className="w-4 h-4" />
-            <span>{t('kanban.btn.newCase')}</span>
-          </button>
+          {/* Quick Tools & New Case Buttons */}
+          <div className="flex items-center gap-2 ml-auto">
+            {onOpenConflictModal && (
+              <button
+                onClick={onOpenConflictModal}
+                title={language === 'es' ? "Comprobación Deontológica de Conflicto de Interés" : "Deontological Conflict of Interest Check"}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-md bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold shadow-2xs active:scale-98 transition cursor-pointer"
+              >
+                <SearchCheck className="w-3.5 h-3.5 text-slate-600" />
+                <span className="hidden sm:inline">{t('nav.conflictCheck')}</span>
+              </button>
+            )}
+
+            {onOpenCopilot && (
+              <button
+                onClick={onOpenCopilot}
+                title={language === 'es' ? "Asistente Jurídico de Cláusulas y Análisis" : "Legal AI Copilot & Clause Drafter"}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-md bg-amber-50 hover:bg-amber-100/80 border border-amber-200 text-amber-900 text-xs font-semibold shadow-2xs active:scale-98 transition cursor-pointer"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                <span className="hidden sm:inline">{t('nav.aiCopilot')}</span>
+              </button>
+            )}
+
+            {/* New Case Button */}
+            <button
+              onClick={() => setShowNewCaseModal(true)}
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-md bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide shadow-xs active:scale-98 transition cursor-pointer shrink-0"
+            >
+              <Plus className="w-4 h-4" />
+              <span>{t('kanban.btn.newCase')}</span>
+            </button>
+          </div>
         </div>
       </div>
 
