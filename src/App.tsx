@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { WelcomeScreen } from './components/WelcomeScreen';
 import { Navbar } from './components/Navbar';
 import { LiveTimerBar } from './components/LiveTimerBar';
@@ -94,132 +95,150 @@ export default function App() {
 
       {/* Main Workspace View Container */}
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-3 sm:px-6 py-6">
-        {activeView === 'kanban' && (
-          <KanbanBoard
-            cases={cases}
-            onSelectCase={(caseItem) => setSelectedCaseDetail(caseItem)}
-            onUpdateCaseStage={handleUpdateCaseStage}
-            onCreateNewCase={handleCreateNewCase}
-            onOpenConflictModal={() => {
-              setConflictSearchQuery('');
-              setShowConflictModal(true);
-            }}
-            onOpenCopilot={() => setShowCopilotModal(true)}
-          />
-        )}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeView}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+          >
+            {activeView === 'kanban' && (
+              <KanbanBoard
+                cases={cases}
+                onSelectCase={(caseItem) => setSelectedCaseDetail(caseItem)}
+                onUpdateCaseStage={handleUpdateCaseStage}
+                onCreateNewCase={handleCreateNewCase}
+                onOpenConflictModal={() => {
+                  setConflictSearchQuery('');
+                  setShowConflictModal(true);
+                }}
+                onOpenCopilot={() => setShowCopilotModal(true)}
+              />
+            )}
 
-        {activeView === 'agenda' && (
-          <AgendaView
-            events={judicialEvents}
-            cases={cases}
-            firm={currentFirm}
-            onAddEvent={handleAddJudicialEvent}
-            onToggleEventComplete={handleToggleEventComplete}
-            onSelectCase={(c) => setSelectedCaseDetail(c)}
-          />
-        )}
+            {activeView === 'agenda' && (
+              <AgendaView
+                events={judicialEvents}
+                cases={cases}
+                firm={currentFirm}
+                onAddEvent={handleAddJudicialEvent}
+                onToggleEventComplete={handleToggleEventComplete}
+                onSelectCase={(c) => setSelectedCaseDetail(c)}
+              />
+            )}
 
-        {activeView === 'clients' && (
-          <ClientsView
-            clients={clients}
-            cases={cases}
-            firm={currentFirm}
-            onAddClient={handleAddCorporateClient}
-            onSelectClientForDetail={(cl) => setSelectedClientForDetail(cl)}
-            onOpenConflictModalForClient={handleOpenConflictForEntity}
-          />
-        )}
+            {activeView === 'clients' && (
+              <ClientsView
+                clients={clients}
+                cases={cases}
+                firm={currentFirm}
+                onAddClient={handleAddCorporateClient}
+                onSelectClientForDetail={(cl) => setSelectedClientForDetail(cl)}
+                onOpenConflictModalForClient={handleOpenConflictForEntity}
+              />
+            )}
 
-        {activeView === 'vault' && (
-          <DocumentVault
-            documents={documents}
-            cases={cases}
-            onUploadDocument={handleUploadDocument}
-            onDeleteDocument={handleDeleteDocument}
-          />
-        )}
+            {activeView === 'vault' && (
+              <DocumentVault
+                documents={documents}
+                cases={cases}
+                onUploadDocument={handleUploadDocument}
+                onDeleteDocument={handleDeleteDocument}
+              />
+            )}
 
-        {activeView === 'billing' && (
-          <TimeBillingView
-            timeEntries={timeEntries}
-            cases={cases}
-            firm={currentFirm}
-            onAddManualTimeEntry={handleSaveTimeEntry}
-            onToggleInvoiced={handleToggleInvoiced}
-          />
-        )}
+            {activeView === 'billing' && (
+              <TimeBillingView
+                timeEntries={timeEntries}
+                cases={cases}
+                firm={currentFirm}
+                onAddManualTimeEntry={handleSaveTimeEntry}
+                onToggleInvoiced={handleToggleInvoiced}
+              />
+            )}
 
-        {activeView === 'trust' && (
-          <TrustAccountView
-            clients={clients}
-            cases={cases}
-          />
-        )}
+            {activeView === 'trust' && (
+              <TrustAccountView
+                clients={clients}
+                cases={cases}
+              />
+            )}
 
-        {activeView === 'analytics' && (
-          <AnalyticsView
-            cases={cases}
-            timeEntries={timeEntries}
-            clients={clients}
-            firm={currentFirm}
-          />
-        )}
+            {activeView === 'analytics' && (
+              <AnalyticsView
+                cases={cases}
+                timeEntries={timeEntries}
+                clients={clients}
+                firm={currentFirm}
+              />
+            )}
 
-        {activeView === 'settings' && (
-          <FirmSettingsView
-            currentFirm={currentFirm}
-            onUpdateFirm={handleUpdateFirm}
-          />
-        )}
+            {activeView === 'settings' && (
+              <FirmSettingsView
+                currentFirm={currentFirm}
+                onUpdateFirm={handleUpdateFirm}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Deep-Dive Case Detail Modal */}
-      {selectedCaseDetail && (
-        <CaseDetailModal
-          caseItem={selectedCaseDetail}
-          timeEntries={timeEntries}
-          documents={documents}
-          onClose={() => setSelectedCaseDetail(null)}
-          onUpdateStage={(stageId) => handleUpdateCaseStage(selectedCaseDetail.id, stageId)}
-          onToggleMilestone={handleToggleMilestone}
-          onStartTimekeeperForCase={handleStartTimekeeperForCase}
-        />
-      )}
+      <AnimatePresence>
+        {selectedCaseDetail && (
+          <CaseDetailModal
+            caseItem={selectedCaseDetail}
+            timeEntries={timeEntries}
+            documents={documents}
+            onClose={() => setSelectedCaseDetail(null)}
+            onUpdateStage={(stageId) => handleUpdateCaseStage(selectedCaseDetail.id, stageId)}
+            onToggleMilestone={handleToggleMilestone}
+            onStartTimekeeperForCase={handleStartTimekeeperForCase}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Deep-Dive Client Detail Modal */}
-      {selectedClientForDetail && (
-        <ClientDetailModal
-          client={selectedClientForDetail}
-          cases={cases}
-          timeEntries={timeEntries}
-          onClose={() => setSelectedClientForDetail(null)}
-          onSelectCase={(c) => {
-            setSelectedClientForDetail(null);
-            setSelectedCaseDetail(c);
-          }}
-          onOpenConflictModal={handleOpenConflictForEntity}
-        />
-      )}
+      <AnimatePresence>
+        {selectedClientForDetail && (
+          <ClientDetailModal
+            client={selectedClientForDetail}
+            cases={cases}
+            timeEntries={timeEntries}
+            onClose={() => setSelectedClientForDetail(null)}
+            onSelectCase={(c) => {
+              setSelectedClientForDetail(null);
+              setSelectedCaseDetail(c);
+            }}
+            onOpenConflictModal={handleOpenConflictForEntity}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Conflict of Interest Check Modal */}
-      {showConflictModal && (
-        <ConflictCheckModal
-          initialSearchQuery={conflictSearchQuery}
-          cases={cases}
-          clients={clients}
-          firm={currentFirm}
-          conflictRecords={conflictRecords}
-          onAddConflictRecord={handleAddConflictRecord}
-          onClose={() => setShowConflictModal(false)}
-        />
-      )}
+      <AnimatePresence>
+        {showConflictModal && (
+          <ConflictCheckModal
+            initialSearchQuery={conflictSearchQuery}
+            cases={cases}
+            clients={clients}
+            firm={currentFirm}
+            conflictRecords={conflictRecords}
+            onAddConflictRecord={handleAddConflictRecord}
+            onClose={() => setShowConflictModal(false)}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Legal AI Copilot Modal */}
-      {showCopilotModal && (
-        <LegalAICopilotModal
-          onClose={() => setShowCopilotModal(false)}
-        />
-      )}
+      <AnimatePresence>
+        {showCopilotModal && (
+          <LegalAICopilotModal
+            onClose={() => setShowCopilotModal(false)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

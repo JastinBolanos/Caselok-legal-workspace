@@ -23,6 +23,7 @@ export interface TrustTransaction {
   amount: number;
   date: string;
   description: string;
+  descriptionEn?: string;
   bankAccount: string;
   authorizedBy: string;
   status: 'Audited' | 'Pending';
@@ -38,6 +39,7 @@ const INITIAL_TRUST_TRANSACTIONS: TrustTransaction[] = [
     amount: 150000,
     date: '2026-08-18',
     description: 'Provisión de fondos para peritaje financiero forense internacional',
+    descriptionEn: 'Retainer provision for international forensic financial expert valuation',
     bankAccount: 'ES91 0049 1500 0512 3456 7890 (Santander Escrow)',
     authorizedBy: 'Elena de la Vega',
     status: 'Audited',
@@ -51,6 +53,7 @@ const INITIAL_TRUST_TRANSACTIONS: TrustTransaction[] = [
     amount: 85000,
     date: '2026-08-15',
     description: 'Consignación de fianza procesal en la Cuenta de Depósitos Judiciales del TSJM',
+    descriptionEn: 'Consignment of procedural court bond into TSJM Judicial Escrow Account',
     bankAccount: 'ES21 0182 2300 1198 7654 3210 (BBVA Depósitos)',
     authorizedBy: 'Santiago Bernabéu',
     status: 'Audited',
@@ -64,6 +67,7 @@ const INITIAL_TRUST_TRANSACTIONS: TrustTransaction[] = [
     amount: 14200,
     date: '2026-08-10',
     description: 'Pago de aranceles notariales y liquidación del Impuesto de Actos Jurídicos Documentados',
+    descriptionEn: 'Payment of notary fees and settlement of Stamp Duty Tax (AJD)',
     bankAccount: 'ES91 0049 1500 0512 3456 7890 (Santander Escrow)',
     authorizedBy: 'Elena de la Vega',
     status: 'Audited',
@@ -77,6 +81,7 @@ const INITIAL_TRUST_TRANSACTIONS: TrustTransaction[] = [
     amount: 60000,
     date: '2026-08-04',
     description: 'Depósito en garantía de honorarios para arbitraje ante la Corte de Arbitraje de Madrid',
+    descriptionEn: 'Fee escrow deposit for commercial arbitration before the Madrid Court of Arbitration',
     bankAccount: 'ES91 0049 1500 0512 3456 7890 (Santander Escrow)',
     authorizedBy: 'Elena de la Vega',
     status: 'Audited',
@@ -90,6 +95,7 @@ const INITIAL_TRUST_TRANSACTIONS: TrustTransaction[] = [
     amount: 25000,
     date: '2026-07-29',
     description: 'Liberación de fondos en custodia a cuenta operativa tras aprobación de factura FE-2026-104',
+    descriptionEn: 'Release of escrow custody funds to operating account upon invoice FE-2026-104 approval',
     bankAccount: 'ES91 0049 1500 0512 3456 7890 (Santander Escrow)',
     authorizedBy: 'Santiago Bernabéu',
     status: 'Audited',
@@ -103,7 +109,7 @@ interface TrustAccountViewProps {
 }
 
 export const TrustAccountView: React.FC<TrustAccountViewProps> = ({ clients, cases }) => {
-  const { language } = useLanguage();
+  const { language, localizeCaseTitle } = useLanguage();
   const [transactions, setTransactions] = useState<TrustTransaction[]>(INITIAL_TRUST_TRANSACTIONS);
   const [searchTerm, setSearchTerm] = useState('');
   const [typeFilter, setTypeFilter] = useState<string>('all');
@@ -357,7 +363,9 @@ export const TrustAccountView: React.FC<TrustAccountViewProps> = ({ clients, cas
                     </td>
 
                     <td className="px-4 py-3.5 max-w-xs">
-                      <div className="text-slate-800 line-clamp-1">{tx.description}</div>
+                      <div className="text-slate-800 line-clamp-1">
+                        {language === 'en' && tx.descriptionEn ? tx.descriptionEn : tx.description}
+                      </div>
                       <div className="text-[10px] text-slate-500">{language === 'es' ? 'Autorizado por' : 'Authorized by'} {tx.authorizedBy}</div>
                     </td>
 
@@ -420,7 +428,7 @@ export const TrustAccountView: React.FC<TrustAccountViewProps> = ({ clients, cas
                     className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-md text-slate-900 focus:bg-white focus:outline-none cursor-pointer"
                   >
                     {cases.map(c => (
-                      <option key={c.id} value={c.code}>[{c.code}] {c.title.substring(0, 20)}...</option>
+                      <option key={c.id} value={c.code}>[{c.code}] {localizeCaseTitle(c.code, c.title).substring(0, 24)}...</option>
                     ))}
                   </select>
                 </div>

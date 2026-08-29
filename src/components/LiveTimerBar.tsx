@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   Play, 
   Pause, 
@@ -116,20 +117,37 @@ export const LiveTimerBar: React.FC<LiveTimerBarProps> = ({
           {/* Left: Stopwatch Display & Case Indicator */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
             {/* Live pulsing indicator */}
-            <div className="flex items-center gap-2">
-              <span className={`timer-pulse ${isRunning ? 'bg-red-500' : 'bg-slate-300'}`} />
+            <div className="flex items-center gap-2.5">
+              <div className="relative flex items-center justify-center">
+                {isRunning ? (
+                  <>
+                    <motion.span 
+                      animate={{ scale: [1, 2, 1], opacity: [0.7, 0, 0.7] }}
+                      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                      className="absolute w-3.5 h-3.5 rounded-full bg-red-400"
+                    />
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500 relative z-10 shadow-xs" />
+                  </>
+                ) : (
+                  <span className="w-2.5 h-2.5 rounded-full bg-slate-300 relative z-10" />
+                )}
+              </div>
               <div className="flex flex-col">
                 <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">
                   {isRunning ? (language === 'es' ? 'Sesión Activa' : 'Live Session') : (language === 'es' ? 'Cronómetro' : 'Stopwatch')}
                 </span>
-                <span className="mono text-xl sm:text-2xl font-semibold tracking-tighter text-slate-900">
+                <span className={`mono text-xl sm:text-2xl font-semibold tracking-tighter transition-colors ${isRunning ? 'text-slate-950 font-bold' : 'text-slate-900'}`}>
                   {formatTime(seconds)}
                 </span>
               </div>
             </div>
 
             {/* Accrued Billable Calculation */}
-            <div className="hidden sm:flex items-center gap-2.5 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200">
+            <motion.div 
+              animate={isRunning ? { scale: [1, 1.015, 1] } : {}}
+              transition={{ repeat: Infinity, duration: 3 }}
+              className="hidden sm:flex items-center gap-2.5 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200"
+            >
               <div>
                 <div className="text-[9px] uppercase tracking-wider text-slate-400 font-medium">{t('timer.currentAmount')}</div>
                 <div className="mono text-xs font-semibold text-slate-900">
@@ -139,7 +157,7 @@ export const LiveTimerBar: React.FC<LiveTimerBarProps> = ({
               <div className="text-[10px] text-slate-400 border-l border-slate-200 pl-2">
                 €{currentRate}/h
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Center: Case & Activity Selector Inputs */}
@@ -150,7 +168,7 @@ export const LiveTimerBar: React.FC<LiveTimerBarProps> = ({
                 aria-label={t('timer.selectMatter')}
                 value={selectedCaseId}
                 onChange={(e) => onSelectCaseId(e.target.value)}
-                className="w-full text-xs font-medium bg-slate-50 border border-slate-200 rounded-md px-2.5 py-2 text-slate-800 focus:border-slate-400 focus:bg-white focus:outline-none appearance-none truncate pr-7 cursor-pointer transition-colors"
+                className="w-full text-xs font-medium bg-slate-50 border border-slate-200 rounded-md px-2.5 py-2 text-slate-800 focus:border-slate-400 focus:bg-white focus:outline-none appearance-none truncate pr-7 cursor-pointer transition-colors hover:bg-slate-100/60"
               >
                 {cases.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -178,7 +196,7 @@ export const LiveTimerBar: React.FC<LiveTimerBarProps> = ({
                 aria-label={t('timer.category')}
                 value={category}
                 onChange={(e) => setCategory(e.target.value as TimeEntry['category'])}
-                className="text-xs bg-slate-50 border border-slate-200 rounded-md px-2.5 py-2 text-slate-700 focus:border-slate-400 focus:bg-white focus:outline-none cursor-pointer"
+                className="text-xs bg-slate-50 border border-slate-200 rounded-md px-2.5 py-2 text-slate-700 focus:border-slate-400 focus:bg-white focus:outline-none cursor-pointer hover:bg-slate-100/60 transition"
               >
                 <option value="Estudio y Análisis">{localizeTimeCategory('Estudio y Análisis')}</option>
                 <option value="Redacción">{localizeTimeCategory('Redacción')}</option>
@@ -192,56 +210,72 @@ export const LiveTimerBar: React.FC<LiveTimerBarProps> = ({
           {/* Right: Actions Controls */}
           <div className="flex items-center gap-2 shrink-0">
             {!isRunning ? (
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03, backgroundColor: '#1e293b' }}
+                whileTap={{ scale: 0.96 }}
                 onClick={handleStart}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-md bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs active:scale-95 transition cursor-pointer shrink-0"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-md bg-slate-900 text-white text-xs font-semibold shadow-xs transition cursor-pointer shrink-0"
               >
                 <Play className="w-3 h-3 fill-current" />
                 <span>{t('timer.start')}</span>
-              </button>
+              </motion.button>
             ) : (
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03, backgroundColor: '#b45309' }}
+                whileTap={{ scale: 0.96 }}
                 onClick={handlePause}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-md bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold shadow-xs active:scale-95 transition cursor-pointer shrink-0"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-md bg-amber-600 text-white text-xs font-semibold shadow-xs transition cursor-pointer shrink-0"
               >
                 <Pause className="w-3 h-3 fill-current" />
                 <span>{t('timer.pause')}</span>
-              </button>
+              </motion.button>
             )}
 
-            <button
+            <motion.button
+              whileHover={seconds > 0 ? { scale: 1.03, backgroundColor: '#047857' } : {}}
+              whileTap={seconds > 0 ? { scale: 0.96 } : {}}
               onClick={handleStopAndSave}
               disabled={seconds === 0}
               title={language === 'es' ? "Guardar y registrar en hoja de horas" : "Save and log to timesheet"}
               className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-xs font-semibold transition cursor-pointer shrink-0 ${
                 seconds > 0
-                  ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs'
+                  ? 'bg-emerald-600 text-white shadow-xs'
                   : 'bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200'
               }`}
             >
               <Check className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">{language === 'es' ? 'Imputar' : 'Log Time'}</span>
-            </button>
+            </motion.button>
 
             {seconds > 0 && !isRunning && (
-              <button
+              <motion.button
+                whileHover={{ scale: 1.06, backgroundColor: '#ffe4e6', color: '#e11d48' }}
+                whileTap={{ scale: 0.92 }}
                 onClick={handleReset}
                 title={language === 'es' ? "Descartar tiempo" : "Discard time"}
-                className="p-2 rounded-md bg-slate-100 hover:bg-rose-50 hover:text-rose-600 text-slate-500 border border-slate-200 transition cursor-pointer shrink-0"
+                className="p-2 rounded-md bg-slate-100 text-slate-500 border border-slate-200 transition cursor-pointer shrink-0"
               >
                 <Square className="w-3.5 h-3.5" />
-              </button>
+              </motion.button>
             )}
           </div>
         </div>
 
         {/* Success toast feedback */}
-        {showSavedFeedback && (
-          <div className="mt-2 text-center py-1.5 px-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center justify-center gap-2">
-            <Check className="w-3.5 h-3.5 text-emerald-600" />
-            <span>{language === 'es' ? 'Tiempo imputado exitosamente en la bitácora del expediente.' : 'Time entry successfully logged to the matter billing records.'}</span>
-          </div>
-        )}
+        <AnimatePresence>
+          {showSavedFeedback && (
+            <motion.div 
+              initial={{ opacity: 0, y: -6, height: 0 }}
+              animate={{ opacity: 1, y: 0, height: 'auto' }}
+              exit={{ opacity: 0, y: -6, height: 0 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="mt-2 text-center py-1.5 px-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center justify-center gap-2 overflow-hidden"
+            >
+              <Check className="w-3.5 h-3.5 text-emerald-600" />
+              <span>{language === 'es' ? 'Tiempo imputado exitosamente en la bitácora del expediente.' : 'Time entry successfully logged to the matter billing records.'}</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
