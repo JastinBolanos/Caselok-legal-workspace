@@ -216,10 +216,7 @@ export const LegalAICopilotModal: React.FC<LegalAICopilotModalProps> = ({ onClos
         </div>
 
         {/* Footer */}
-        <div className="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs">
-          <span className="text-slate-500">
-            {language === 'es' ? 'Basado en jurisprudencia consolidada del Tribunal Supremo y reglamentos de cortes arbitrales.' : 'Aligned with Supreme Court case law and international arbitration rules.'}
-          </span>
+        <div className="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-end text-xs">
           <button
             onClick={onClose}
             className="px-4 py-1.5 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-medium cursor-pointer shadow-xs"

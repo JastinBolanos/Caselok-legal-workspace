@@ -83,10 +83,6 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
             <span className="text-[10px] text-slate-400">| {language === 'es' ? 'EN' : 'ES'}</span>
           </button>
 
-          <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-md bg-white border border-slate-200 shadow-xs">
-            <LockKeyhole className="w-3.5 h-3.5 text-emerald-600" />
-            <span className="mono text-[11px]">{t('system.encryption')}</span>
-          </div>
           <div className="hidden lg:flex items-center gap-1.5 text-slate-600 font-medium">
             <ShieldCheck className="w-4 h-4 text-slate-800" />
             <span>{t('system.audit')}</span>

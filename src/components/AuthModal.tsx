@@ -101,12 +101,6 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     }, 600);
   };
 
-  const handleFillDemoCredentials = () => {
-    setEmail('socio@caselok.com');
-    setPassword('Caselok2026!');
-    setLoginError(null);
-  };
-
   const handleRegisterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!regName || !regEmail) return;
@@ -213,20 +207,6 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           {/* TAB 1: INICIAR SESIÓN */}
           {activeTab === 'login' && (
             <div className="space-y-4">
-              <div className="p-3 rounded-lg bg-amber-50/80 border border-amber-200/80 flex items-start gap-2.5">
-                <LockKeyhole className="w-4 h-4 text-amber-800 shrink-0 mt-0.5" />
-                <div className="text-amber-900 text-xs leading-relaxed">
-                  <span className="font-semibold block">
-                    {language === 'es' ? 'Acceso Restringido & Custodia Deontológica' : 'Restricted Access & Privilege Vault'}
-                  </span>
-                  <span>
-                    {language === 'es'
-                      ? 'Por prescripción del Estatuto de la Abogacía e ISO 27001, solo los letrados y socios verificados en el censo corporativo pueden acceder.'
-                      : 'Under Bar association statutory compliance and ISO 27001, only verified partners and solicitors may access.'}
-                  </span>
-                </div>
-              </div>
-
               {loginError && (
                 <div className="p-4 rounded-lg bg-rose-50 border border-rose-200 text-rose-900 space-y-2 animate-in fade-in">
                   <div className="flex items-center gap-2 font-bold text-rose-950">
@@ -306,11 +286,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-1">
-                  <label className="flex items-center gap-2 text-slate-600 cursor-pointer">
-                    <input type="checkbox" defaultChecked className="rounded text-slate-900 focus:ring-0" />
-                    <span>{language === 'es' ? 'Certificado Digital / Tarjeta ACA Activo' : 'SmartCard / ACA Token Active'}</span>
-                  </label>
+                <div className="flex items-center justify-end pt-1">
                   <button
                     type="button"
                     onClick={() => setActiveTab('support')}
@@ -334,23 +310,6 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </form>
-
-              {/* Demo Credentials Quick-Fill helper for authorized evaluation */}
-              <div className="p-3 rounded-lg bg-slate-100 border border-slate-200/80 flex items-center justify-between text-[11px]">
-                <div className="space-y-0.5">
-                  <span className="font-semibold text-slate-800 block">
-                    {language === 'es' ? 'Cuenta de Socio Verificada (Demo Oficial):' : 'Verified Partner Account (Official Demo):'}
-                  </span>
-                  <span className="mono text-slate-600">socio@caselok.com • Caselok2026!</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={handleFillDemoCredentials}
-                  className="px-2.5 py-1 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-800 font-medium text-[11px] shadow-2xs transition cursor-pointer shrink-0"
-                >
-                  {language === 'es' ? 'Autocompletar' : 'Auto-fill'}
-                </button>
-              </div>
             </div>
           )}
 

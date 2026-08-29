@@ -93,7 +93,7 @@ export default function App() {
       />
 
       {/* Main Workspace View Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
+      <main className="flex-1 max-w-[1600px] w-full mx-auto px-3 sm:px-6 py-6">
         {activeView === 'kanban' && (
           <KanbanBoard
             cases={cases}

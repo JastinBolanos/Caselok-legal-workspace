@@ -46,38 +46,38 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-slate-900 border-b border-slate-800 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 gap-3">
+      <div className="w-full max-w-[1600px] mx-auto px-3 sm:px-6">
+        <div className="flex items-center justify-between h-16 gap-2 lg:gap-3">
           
           {/* Left: Brand & Firm Switcher */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2.5 sm:gap-3.5 shrink-0">
             {/* Logo */}
             <div 
               onClick={onOpenWelcome}
-              className="flex items-center gap-2.5 cursor-pointer group shrink-0"
+              className="flex items-center gap-2 sm:gap-2.5 cursor-pointer group shrink-0"
               title={language === 'es' ? "Volver a la pantalla de bienvenida" : "Back to Welcome Screen"}
             >
-              <div className="flex items-center justify-center w-8 h-8 rounded bg-slate-800 border border-slate-700 text-slate-200 group-hover:border-slate-500 transition">
+              <div className="flex items-center justify-center w-8 h-8 rounded bg-slate-800 border border-slate-700 text-slate-200 group-hover:border-slate-500 transition shrink-0">
                 <Scale className="w-4 h-4 text-amber-400" />
               </div>
-              <div>
-                <span className="serif text-lg tracking-tight font-semibold text-slate-100 block leading-tight">
+              <div className="shrink-0">
+                <span className="serif text-base sm:text-lg tracking-tight font-semibold text-slate-100 block leading-tight">
                   Caselok
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.2em] text-slate-400 block -mt-0.5">
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-slate-400 block -mt-0.5">
                   {t('brand.subtitle')}
                 </span>
               </div>
             </div>
 
             {/* Firm Dropdown Button */}
-            <div className="relative">
+            <div className="relative shrink-0">
               <button
                 onClick={() => setShowFirmMenu(!showFirmMenu)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-slate-800/90 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer"
+                className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-md bg-slate-800/90 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer"
               >
                 <Building2 className="w-3.5 h-3.5 text-amber-400/90 shrink-0" />
-                <span className="max-w-[110px] sm:max-w-[140px] truncate font-medium text-[11px] text-slate-100">
+                <span className="max-w-[100px] sm:max-w-[130px] xl:max-w-[160px] truncate font-medium text-[11px] text-slate-100">
                   {currentFirm.name.split('&')[0]}
                 </span>
                 <ChevronDown className="w-3 h-3 text-slate-400 shrink-0" />
@@ -111,138 +111,138 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Center: Main View Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-800/80 p-1 rounded-lg border border-slate-750">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-slate-800/90 p-1 rounded-lg border border-slate-750 shrink-0">
             <button
               onClick={() => onSelectView('kanban')}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition cursor-pointer ${
+              className={`whitespace-nowrap flex items-center gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-md text-[11px] xl:text-xs font-medium transition cursor-pointer ${
                 activeView === 'kanban'
                   ? 'bg-slate-950 text-white shadow-xs font-semibold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              <Layers className="w-3.5 h-3.5" />
+              <Layers className="w-3.5 h-3.5 shrink-0" />
               <span>{t('nav.litigation')}</span>
             </button>
 
             <button
               onClick={() => onSelectView('agenda')}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition cursor-pointer ${
+              className={`whitespace-nowrap flex items-center gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-md text-[11px] xl:text-xs font-medium transition cursor-pointer ${
                 activeView === 'agenda'
                   ? 'bg-slate-950 text-white shadow-xs font-semibold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              <Calendar className="w-3.5 h-3.5" />
+              <Calendar className="w-3.5 h-3.5 shrink-0" />
               <span>{t('nav.agenda')}</span>
             </button>
 
             <button
               onClick={() => onSelectView('clients')}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition cursor-pointer ${
+              className={`whitespace-nowrap flex items-center gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-md text-[11px] xl:text-xs font-medium transition cursor-pointer ${
                 activeView === 'clients'
                   ? 'bg-slate-950 text-white shadow-xs font-semibold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              <Users className="w-3.5 h-3.5" />
+              <Users className="w-3.5 h-3.5 shrink-0" />
               <span>{t('nav.clients')}</span>
             </button>
 
             <button
               onClick={() => onSelectView('vault')}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition cursor-pointer ${
+              className={`whitespace-nowrap flex items-center gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-md text-[11px] xl:text-xs font-medium transition cursor-pointer ${
                 activeView === 'vault'
                   ? 'bg-slate-950 text-white shadow-xs font-semibold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              <FolderLock className="w-3.5 h-3.5" />
+              <FolderLock className="w-3.5 h-3.5 shrink-0" />
               <span>{t('nav.vault')}</span>
             </button>
 
             <button
               onClick={() => onSelectView('billing')}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition cursor-pointer ${
+              className={`whitespace-nowrap flex items-center gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-md text-[11px] xl:text-xs font-medium transition cursor-pointer ${
                 activeView === 'billing'
                   ? 'bg-slate-950 text-white shadow-xs font-semibold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              <Clock className="w-3.5 h-3.5" />
+              <Clock className="w-3.5 h-3.5 shrink-0" />
               <span>{t('nav.billing')}</span>
             </button>
 
             <button
               onClick={() => onSelectView('trust')}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition cursor-pointer ${
+              className={`whitespace-nowrap flex items-center gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-md text-[11px] xl:text-xs font-medium transition cursor-pointer ${
                 activeView === 'trust'
                   ? 'bg-slate-950 text-white shadow-xs font-semibold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              <Landmark className="w-3.5 h-3.5" />
+              <Landmark className="w-3.5 h-3.5 shrink-0" />
               <span>{t('nav.trust')}</span>
             </button>
 
             <button
               onClick={() => onSelectView('analytics')}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition cursor-pointer ${
+              className={`whitespace-nowrap flex items-center gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-md text-[11px] xl:text-xs font-medium transition cursor-pointer ${
                 activeView === 'analytics'
                   ? 'bg-slate-950 text-white shadow-xs font-semibold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              <BarChart3 className="w-3.5 h-3.5" />
+              <BarChart3 className="w-3.5 h-3.5 shrink-0" />
               <span>{t('nav.analytics')}</span>
             </button>
 
             <button
               onClick={() => onSelectView('settings')}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition cursor-pointer ${
+              className={`whitespace-nowrap flex items-center gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-md text-[11px] xl:text-xs font-medium transition cursor-pointer ${
                 activeView === 'settings'
                   ? 'bg-slate-950 text-white shadow-xs font-semibold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              <Sliders className="w-3.5 h-3.5" />
+              <Sliders className="w-3.5 h-3.5 shrink-0" />
               <span>{t('nav.settings')}</span>
             </button>
           </nav>
 
           {/* Right: Quick Tools & Language Switcher & AI Copilot */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             {/* Language Switcher Button */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer shadow-xs"
+              className="whitespace-nowrap flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-md bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer shadow-xs"
               title={language === 'es' ? 'Cambiar a English (EN)' : 'Switch to Español (ES)'}
             >
-              <Globe className="w-3.5 h-3.5 text-amber-400" />
+              <Globe className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               <span className="font-semibold text-slate-100">{language === 'es' ? 'ES' : 'EN'}</span>
-              <span className="text-[10px] text-slate-400 hidden sm:inline">({language === 'es' ? 'Español' : 'English'})</span>
+              <span className="text-[10px] text-slate-400 hidden xl:inline">({language === 'es' ? 'Español' : 'English'})</span>
             </button>
 
             <button
               onClick={onOpenConflictModal}
               title={language === 'es' ? "Comprobación Deontológica de Conflicto de Interés" : "Deontological Conflict of Interest Check"}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer"
+              className="whitespace-nowrap flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-md bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer"
             >
-              <SearchCheck className="w-3.5 h-3.5 text-slate-300" />
-              <span className="hidden sm:inline">{t('nav.conflictCheck')}</span>
+              <SearchCheck className="w-3.5 h-3.5 text-slate-300 shrink-0" />
+              <span className="hidden sm:inline text-xs">{t('nav.conflictCheck')}</span>
             </button>
 
             <button
               onClick={onOpenCopilot}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer"
+              className="whitespace-nowrap flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span className="hidden md:inline">{t('nav.aiCopilot')}</span>
+              <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <span className="hidden md:inline text-xs">{t('nav.aiCopilot')}</span>
             </button>
 
             <button
               onClick={onOpenWelcome}
               title={language === 'es' ? "Pantalla de Bienvenida y Portal" : "Welcome Portal"}
-              className="p-2 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700 transition cursor-pointer"
+              className="p-2 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700 transition cursor-pointer shrink-0"
             >
               <Home className="w-4 h-4" />
             </button>
