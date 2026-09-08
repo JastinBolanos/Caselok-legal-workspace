@@ -5,9 +5,20 @@
 [![Compliance / Architecture](https://img.shields.io/badge/Architecture-Clean%20DDD%20%2F%20Hexagonal-8B5CF6?style=flat-square)](https://github.com/JastinBolanos/caselok-legal-workspace)
 [![Security Audited](https://img.shields.io/badge/Security-SHA--256%20Chain%20of%20Custody-0F172A?style=flat-square&logo=shield)](https://github.com/JastinBolanos/caselok-legal-workspace)
 
-> Sistema corporativo de alta disponibilidad para la gestión integral de expedientes jurídicos, orquestación de litigios complejos, control estricto de horas facturables en tiempo real, prevención deontológica de conflictos de interés y custodia criptográfica de activos documentales para bufetes de élite y departamentos legales multinacionales.
+> **Sistema corporativo de alta disponibilidad para la gestión integral de expedientes jurídicos**, orquestación de litigios complejos, control estricto de horas facturables en tiempo real, prevención deontológica de conflictos de interés y custodia criptográfica de activos documentales para bufetes de élite y departamentos legales multinacionales.
 
-[Ver Plataforma en Vivo (Producción) 🟢](https://ais-pre-nj3eowf7xearw5ux3wic4x-259376385298.us-west1.run.app)
+🌍 **[Ver Plataforma en Vivo (Producción) 🟢](https://caselok.vercel.app)**
+
+![Vista Previa de Caselok Workspace](https://github.com/user-attachments/assets/f6dbbf5d-d220-44b4-b7ea-976356a0050a)
+
+---
+
+## 🎥 Demostración del Entorno LegalTech
+
+**🎬 Panel de Control y Orquestación de Casos**  
+Exploración del ecosistema jurídico: gestión procesal mediante tablero Kanban, telemetría de horas facturables (WIP) en tiempo real, motor de detección de conflictos de interés y custodia de documentos con verificación de integridad SHA-256.
+
+https://github.com/user-attachments/assets/622a64f5-585e-4915-a023-36d605ce5380
 
 ---
 
