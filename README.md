@@ -1,3 +1,7 @@
+
+
+
+
 # Caselok Enterprise LegalTech Workspace `v2.4.0-ENT`
 
 [![Build Status](https://img.shields.io/badge/Build-Passing-10B981?style=flat-square&logo=github-actions)](https://github.com/JastinBolanos/caselok-legal-workspace)
@@ -9,7 +13,7 @@
 
 🌍 **[Ver Plataforma en Vivo (Producción) 🟢](https://caselok.vercel.app)**
 
-![Vista Previa de Caselok Workspace](https://github.com/user-attachments/assets/f6dbbf5d-d220-44b4-b7ea-976356a0050a)
+![Vista Previa de Caselok Workspace](https://github.com/user-attachments/assets/b1b31fcc-fe69-4c86-b00a-d340f127d534)
 
 ---
 
@@ -18,7 +22,7 @@
 **🎬 Panel de Control y Orquestación de Casos**  
 Exploración del ecosistema jurídico: gestión procesal mediante tablero Kanban, telemetría de horas facturables (WIP) en tiempo real, motor de detección de conflictos de interés y custodia de documentos con verificación de integridad SHA-256.
 
-https://github.com/user-attachments/assets/622a64f5-585e-4915-a023-36d605ce5380
+https://github.com/user-attachments/assets/265bf4ce-b1ee-480d-b1dc-273adf21cbd1
 
 ---
 
