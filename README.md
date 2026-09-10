@@ -1,7 +1,3 @@
-
-
-
-
 # Caselok Enterprise LegalTech Workspace `v2.4.0-ENT`
 
 [![Build Status](https://img.shields.io/badge/Build-Passing-10B981?style=flat-square&logo=github-actions)](https://github.com/JastinBolanos/caselok-legal-workspace)
@@ -9,151 +5,151 @@
 [![Compliance / Architecture](https://img.shields.io/badge/Architecture-Clean%20DDD%20%2F%20Hexagonal-8B5CF6?style=flat-square)](https://github.com/JastinBolanos/caselok-legal-workspace)
 [![Security Audited](https://img.shields.io/badge/Security-SHA--256%20Chain%20of%20Custody-0F172A?style=flat-square&logo=shield)](https://github.com/JastinBolanos/caselok-legal-workspace)
 
-> **Sistema corporativo de alta disponibilidad para la gestión integral de expedientes jurídicos**, orquestación de litigios complejos, control estricto de horas facturables en tiempo real, prevención deontológica de conflictos de interés y custodia criptográfica de activos documentales para bufetes de élite y departamentos legales multinacionales.
+> **High-availability enterprise system for comprehensive legal case management**, complex litigation orchestration, strict real-time billable hours tracking, ethical conflict-of-interest prevention, and cryptographic document asset custody for elite law firms and multinational legal departments.
 
-🌍 **[Ver Plataforma en Vivo (Producción) 🟢](https://caselok.vercel.app)**
+🌍 **[View Live Platform (Production) 🟢](https://caselok.vercel.app)**
 
-![Vista Previa de Caselok Workspace](https://github.com/user-attachments/assets/b1b31fcc-fe69-4c86-b00a-d340f127d534)
+![Caselok Workspace Preview](https://github.com/user-attachments/assets/b1b31fcc-fe69-4c86-b00a-d340f127d534)
 
 ---
 
-## 🎥 Demostración del Entorno LegalTech
+## 🎥 LegalTech Environment Demonstration
 
-**🎬 Panel de Control y Orquestación de Casos**  
-Exploración del ecosistema jurídico: gestión procesal mediante tablero Kanban, telemetría de horas facturables (WIP) en tiempo real, motor de detección de conflictos de interés y custodia de documentos con verificación de integridad SHA-256.
+**🎬 Control Panel & Case Orchestration**  
+Exploration of the legal ecosystem: procedural management via Kanban board, real-time billable hours (WIP) telemetry, conflict-of-interest detection engine, and document custody with SHA-256 integrity verification.
 
 https://github.com/user-attachments/assets/265bf4ce-b1ee-480d-b1dc-273adf21cbd1
 
 ---
 
-## 🏛️ Arquitectura de Sistema y Stack Tecnológico
+## 🏛️ System Architecture & Technology Stack
 
-Caselok implementa una arquitectura desacoplada basada en **Clean Architecture** y **Domain-Driven Design (DDD)** con ejecución cliente/edge de alto rendimiento. Por estrictas políticas de gobernanza de datos, confidencialidad corporativa y cumplimiento normativo (RGPD / Ley Orgánica del Poder Judicial), los microservicios de persistencia distribuida, bases de datos relacionales empresariales y el pipeline de sincronización judicial residen en repositorios privados bajo redes virtuales aisladas.
+Caselok implements a decoupled architecture based on **Clean Architecture** and **Domain-Driven Design (DDD)** with high-performance client/edge execution. Due to strict data governance policies, corporate confidentiality, and regulatory compliance (GDPR / Organic Law of the Judiciary), distributed persistence microservices, enterprise relational databases, and judicial synchronization pipelines reside in private repositories within isolated virtual networks.
 
-A continuación se detalla la suite tecnológica operativa homologada en el sistema:
+Below is the certified operational technology suite used in the system:
 
 ### Core & Runtime
-- **`react`** (`^19.0.1`): Motor declarativo y reactivo de última generación para interfaces de alta densidad.
-- **`react-dom`** (`^19.0.1`): Capa de renderizado e hidratación optimizada para DOM.
-- **`typescript`** (`~5.8.2`): Tipado estático estricto en todas las capas del dominio y la infraestructura.
+- **`react`** (`^19.0.1`): Latest generation declarative and reactive UI engine for high-density interfaces.
+- **`react-dom`** (`^19.0.1`): Optimized rendering and hydration layer for the DOM.
+- **`typescript`** (`~5.8.2`): Strict static typing across all domain and infrastructure layers.
 
 ### UI Engine, Styling & Motion
-- **`@tailwindcss/vite`** (`^4.1.14`) & **`tailwindcss`** (`^4.1.14`): Motor de utilidades CSS de compilación nativa zero-runtime.
-- **`motion`** (`^12.23.24`): Orquestador de micro-interacciones, transiciones de estado complejas y layout animations.
-- **`lucide-react`** (`^0.546.0`): Iconografía vectorial técnica estandarizada para entornos jurídicos y financieros.
-- **`autoprefixer`** (`^10.4.21`): Optimización de compatibilidad CSS y vendor prefixes.
+- **`@tailwindcss/vite`** (`^4.1.14`) & **`tailwindcss`** (`^4.1.14`): Native compilation zero-runtime CSS utility engine.
+- **`motion`** (`^12.23.24`): Orchestrator for micro-interactions, complex state transitions, and layout animations.
+- **`lucide-react`** (`^0.546.0`): Standardized technical vector iconography for legal and financial environments.
+- **`autoprefixer`** (`^10.4.21`): CSS compatibility optimization and vendor prefixes.
 
-### Motor de Inferencia & IA Legal
-- **`@google/genai`** (`^2.4.0`): SDK empresarial para la integración de modelos de lenguaje avanzados Gemini en análisis contractual, síntesis jurisprudencial y redacción asistida de cláusulas complejas.
+### Inference Engine & Legal AI
+- **`@google/genai`** (`^2.4.0`): Enterprise SDK for integrating advanced Gemini language models in contract analysis, jurisprudential synthesis, and assisted drafting of complex clauses.
 
 ### Backend, Proxy & Tooling
-- **`express`** (`^4.21.2`): Servidor proxy para enrutamiento seguro de peticiones, middlewares y control de cabeceras de seguridad.
-- **`vite`** (`^6.2.3`): Plataforma de empaquetado, Hot Module Replacement y compilación optimizada para producción.
-- **`@vitejs/plugin-react`** (`^5.0.4`): Integración avanzada de Fast Refresh para React en Vite.
-- **`dotenv`** (`^17.2.3`): Carga segura de variables de entorno y parámetros de ejecución.
-- **`tsx`** (`^4.21.0`): Runtime TypeScript para ejecución directa del servidor proxy en entornos de desarrollo.
-- **`esbuild`** (`^0.25.0`): Compilador y minificador ultraveloz para empaquetado de artefactos del servidor.
-- **`@types/node`** (`^22.14.0`) & **`@types/express`** (`^4.17.21`): Tipos y contratos del entorno Node.js y Express.
+- **`express`** (`^4.21.2`): Proxy server for secure request routing, middleware, and security header controls.
+- **`vite`** (`^6.2.3`): Bundling platform, Hot Module Replacement, and production-optimized compilation.
+- **`@vitejs/plugin-react`** (`^5.0.4`): Advanced Fast Refresh integration for React in Vite.
+- **`dotenv`** (`^17.2.3`): Secure loading of environment variables and execution parameters.
+- **`tsx`** (`^4.21.0`): TypeScript runtime for direct execution of the proxy server in development environments.
+- **`esbuild`** (`^0.25.0`): Ultra-fast compiler and minifier for packaging server artifacts.
+- **`@types/node`** (`^22.14.0`) & **`@types/express`** (`^4.17.21`): Types and contracts for Node.js and Express environments.
 
 ---
 
-## ⚡ Módulos Operativos (Desplegados)
+## ⚡ Operational Modules (Deployed)
 
-1. **Orquestador Procesal y Flujo de Expedientes (`KanbanBoard` & `CaseDetailModal`)**
-   - Gestión visual del ciclo de vida judicial/corporativo estructurado en 5 etapas normativas: *Intake & Compliance*, *Due Diligence & Análisis*, *Redacción & Negociación*, *Litigación & Sede Judicial* y *Cierre / Ejecución*.
-   - Supervisión de cuantías en litigio, cálculo de horas presupuestadas vs. devengadas, categorización por riesgo y seguimiento de hitos preclusivos.
+1. **Procedural Orchestrator & Case Workflow (`KanbanBoard` & `CaseDetailModal`)**
+   - Visual management of the judicial/corporate lifecycle structured into 5 standard procedural stages: *Intake & Compliance*, *Due Diligence & Analysis*, *Drafting & Negotiation*, *Litigation & Court Proceedings*, and *Closing / Enforcement*.
+   - Supervision of amounts in dispute, calculation of budgeted vs. accrued billable hours, risk categorization, and monitoring of preclusive statutory milestones.
 
-2. **Telemetría de Horas Facturables y Facturación (`LiveTimerBar` & `TimeBillingView`)**
-   - Cronómetro flotante persistente con cálculo dinámico de honorarios devengados en tiempo real según la tarifa del socio director o área jurídica.
-   - Liquidación de *Work in Progress* (WIP), imputación granular por categoría procesal y generación de estados de facturación.
+2. **Billable Hours Telemetry & Invoicing (`LiveTimerBar` & `TimeBillingView`)**
+   - Persistent floating stopwatch with dynamic real-time calculation of accrued legal fees based on managing partner or practice group rates.
+   - Work in Progress (WIP) settlement, granular time allocation by procedural category, and generation of billing statements.
 
-3. **Motor Deontológico de Detección de Conflictos (`ConflictCheckModal` & `conflictDetection`)**
-   - Algoritmo de comprobación cruzada que analiza entidades vinculadas, grupos empresariales y partes contrarias en pleitos activos e históricos.
-   - Emisión automatizada de dictámenes de compatibilidad y certificados de *Clearance* con trazabilidad de firma de socio.
+3. **Ethical Conflict-of-Interest Detection Engine (`ConflictCheckModal` & `conflictDetection`)**
+   - Cross-checking algorithm that analyzes affiliated entities, corporate groups, and adverse parties across active and historical matters.
+   - Automated issuance of compatibility opinions and Clearance certificates with partner signature traceability.
 
-4. **Bóveda Criptográfica y Cadena de Custodia Documental (`DocumentVault` & `documentSecurity`)**
-   - Repositorio seguro con categorización procesal (*Contratos M&A*, *Dictámenes Jurídicos*, *Escritos Procesales*, *Poderes Notariales*).
-   - Clasificación por niveles de estricta confidencialidad (*Secreto Profesional*, *Confidencial Bufete*) y generación de firmas hash SHA-256 para auditoría de integridad probatoria.
+4. **Cryptographic Vault & Document Chain of Custody (`DocumentVault` & `documentSecurity`)**
+   - Secure repository with procedural categorization (*M&A Contracts*, *Legal Opinions*, *Court Pleadings*, *Powers of Attorney*).
+   - Classification under strict confidentiality tiers (*Attorney-Client Privilege*, *Firm Confidential*) and SHA-256 hash generation for evidentiary integrity auditing.
 
-5. **Libro Mayor de Cuentas Fiduciarias y Provisiones (`TrustAccountView`)**
-   - Administración estricta de fondos de terceros (*IOLTA / Escrow*), provisiones de fondos para gastos procesales, consignaciones judiciales y aplicación transparente de honorarios devengados.
+5. **Trust Account & Retainer Ledger (`TrustAccountView`)**
+   - Strict administration of third-party funds (*IOLTA / Escrow*), litigation expense retainers, judicial deposits, and transparent disbursement of earned fees.
 
-6. **Copiloto de Inteligencia Artificial Jurídica (`LegalAICopilotModal`)**
-   - Asistente de redacción paramétrica de cláusulas críticas (Arbitraje CAM/CCI, Cláusulas MAC, Cap de Indemnidad, Pactos de No Competencia) y análisis de contingencias legales.
+6. **Legal Artificial Intelligence Copilot (`LegalAICopilotModal`)**
+   - Parametric drafting assistant for critical contractual clauses (CAM/ICC Arbitration, MAC Clauses, Indemnity Caps, Non-Compete Covenants) and legal risk assessment.
 
 ---
 
-## 🚀 Guía de Despliegue y Auditoría
+## 🚀 Deployment & Audit Guide
 
-### Requisitos del Sistema
-- **Node.js**: Entorno de ejecución `v20.x` o superior (LTS recomendado).
-- **Gestor de Paquetes**: `npm` v10+ (o equivalente).
+### System Requirements
+- **Node.js**: Runtime environment `v20.x` or higher (LTS recommended).
+- **Package Manager**: `npm` v10+ (or equivalent).
 
-### Pasos de Instalación y Puesta en Marcha
+### Installation & Getting Started
 
-1. **Clonación del Repositorio:**
+1. **Repository Cloning:**
    ```bash
    git clone https://github.com/JastinBolanos/caselok-legal-workspace.git
    cd caselok-legal-workspace
    ```
 
-2. **Instalación de Dependencias Homologadas:**
+2. **Certified Dependency Installation:**
    ```bash
    npm install
    ```
 
-3. **Configuración de Variables de Entorno:**
+3. **Environment Variable Configuration:**
    ```bash
    cp .env.example .env
    ```
-   *(Configure las credenciales de API requeridas y parámetros de proxy en su archivo `.env`)*
+   *(Configure required API credentials and proxy parameters in your `.env` file)*
 
-4. **Ejecución en Modo Desarrollo:**
+4. **Running in Development Mode:**
    ```bash
    npm run dev
    ```
-   La suite cliente estará disponible inmediatamente en `http://localhost:3000`.
+   The client suite will be immediately available at `http://localhost:3000`.
 
 ---
 
-## 🛠️ Herramientas de Integración y Despliegue (CI/CD)
+## 🛠️ Integration & Deployment Tools (CI/CD)
 
-| Comando | Propósito / Pipeline |
+| Command | Purpose / Pipeline |
 | :--- | :--- |
-| `npm run dev` | Inicia el servidor de desarrollo Vite con Hot Module Replacement en el puerto 3000. |
-| `npm run build` | Compila los artefactos de producción y genera el bundle optimizado en `/dist`. |
-| `npm run preview` | Levanta un servidor local de validación previa al despliegue sobre los binarios de `/dist`. |
-| `npm run lint` | Ejecuta el validador estático de TypeScript (`tsc --noEmit`) para garantizar tipado estricto. |
+| `npm run dev` | Starts Vite development server with Hot Module Replacement on port 3000. |
+| `npm run build` | Compiles production artifacts and outputs the optimized bundle in `/dist`. |
+| `npm run preview` | Spins up a local pre-deployment validation server over the `/dist` binaries. |
+| `npm run lint` | Runs the static TypeScript validator (`tsc --noEmit`) to enforce strict typing. |
 
 ---
 
-## 📁 Arquitectura de Dominio (Tree)
+## 📁 Domain Architecture (Tree)
 
 ```text
 src/
-├── application/             # Capa de Orquestación y Hooks
-│   └── hooks/               # useWorkspaceState (máquina de estado global reactiva)
-├── domain/                  # Núcleo de Lógica Jurídica y Modelos de Negocio
-│   ├── models/              # Definiciones estrictas de entidades (Case, Client, Document, Event, Firm, TimeEntry)
-│   └── services/            # Algoritmos puros (billingCalculations, conflictDetection, deadlineCalculations, documentSecurity)
-├── infrastructure/          # Adaptadores de Persistencia y Comunicación
-│   ├── repositories/        # Repositorios aislados por entidad (caseRepo, clientRepo, documentRepo, etc.)
-│   └── storage/             # Adaptadores de almacenamiento seguro y contratos de persistencia
-├── components/              # Interfaz de Usuario y Paneles Operativos
-│   ├── KanbanBoard.tsx      # Tablero procesal de fases jurisdiccionales
-│   ├── LiveTimerBar.tsx     # Telemetría de horas facturables en tiempo real
-│   ├── DocumentVault.tsx    # Bóveda documental y cálculo de hash de custodia
-│   ├── ConflictCheckModal.tsx # Motor de análisis y certificación de incompatibilidades
-│   ├── TrustAccountView.tsx # Gestión de cuentas fiduciarias y depósitos IOLTA
-│   ├── AnalyticsView.tsx    # Business intelligence y métricas operativas del bufete
-│   └── LegalAICopilotModal.tsx # Inferencia de IA legal y modelos Gemini
-├── i18n/                    # Módulo de Internacionalización y Terminología Jurídica (ES / EN)
-├── data/                    # Semillas de datos pre-configuradas para entornos auditables
-├── types.ts                 # Exportación de contratos globales de TypeScript
-├── index.css                # Estilos base y variables de diseño institucional
-└── main.tsx                 # Punto de entrada e hidratación de la aplicación
+├── application/             # Orchestration Layer & Custom Hooks
+│   └── hooks/               # useWorkspaceState (reactive global state machine)
+├── domain/                  # Legal Core Logic & Business Models
+│   ├── models/              # Strict entity definitions (Case, Client, Document, Event, Firm, TimeEntry)
+│   └── services/            # Pure algorithms (billingCalculations, conflictDetection, deadlineCalculations, documentSecurity)
+├── infrastructure/          # Persistence Adapters & External Communication
+│   ├── repositories/        # Isolated entity repositories (caseRepo, clientRepo, documentRepo, etc.)
+│   └── storage/             # Secure storage adapters & persistence contracts
+├── components/              # User Interface & Operational Panels
+│   ├── KanbanBoard.tsx      # Procedural board across jurisdictional phases
+│   ├── LiveTimerBar.tsx     # Real-time billable hours telemetry
+│   ├── DocumentVault.tsx    # Document vault & custody hash computation
+│   ├── ConflictCheckModal.tsx # Incompatibility analysis & certification engine
+│   ├── TrustAccountView.tsx # Trust account & IOLTA escrow management
+│   ├── AnalyticsView.tsx    # Business intelligence & firm operational metrics
+│   └── LegalAICopilotModal.tsx # Legal AI inference with Gemini models
+├── i18n/                    # Internationalization Module & Legal Terminology (ES / EN)
+├── data/                    # Pre-configured seed data for auditable demo environments
+├── types.ts                 # Global TypeScript contract exports
+├── index.css                # Base styles & institutional design tokens
+└── main.tsx                 # Application entry point and hydration
 ```
 
 ---
 
-Propiedad de Arquitectura de Software - Jastin Bolaños © 2026. Proyecto de Demostración Técnica Empresarial.
+Software Architecture Property - Jastin Bolaños © 2026. Enterprise Technical Showcase Project.
