@@ -1,17 +1,29 @@
-# Caselok Enterprise LegalTech Workspace `v2.4.0-ENT`
+<div align="center">
+  <img alt="Caselok Banner" src="https://github.com/user-attachments/assets/fbfd5932-584f-431f-a95e-74470a884a52" width="40%" />
 
-[![Build Status](https://img.shields.io/badge/Build-Passing-10B981?style=flat-square&logo=github-actions)](https://github.com/JastinBolanos/caselok-legal-workspace)
-[![Deployment](https://img.shields.io/badge/Deployment-Cloud%20Run%20Production-0EA5E9?style=flat-square&logo=google-cloud)](https://github.com/JastinBolanos/caselok-legal-workspace)
-[![Compliance / Architecture](https://img.shields.io/badge/Architecture-Clean%20DDD%20%2F%20Hexagonal-8B5CF6?style=flat-square)](https://github.com/JastinBolanos/caselok-legal-workspace)
-[![Security Audited](https://img.shields.io/badge/Security-SHA--256%20Chain%20of%20Custody-0F172A?style=flat-square&logo=shield)](https://github.com/JastinBolanos/caselok-legal-workspace)
+  <br>
+
+  <h3>Enterprise LegalTech Workspace (v2.4.0-ENT)</h3>
+
+  <p>
+    <img src="https://img.shields.io/badge/Build-Passing-10B981?style=flat-square&logo=github-actions" alt="Build Status" />
+    <img src="https://img.shields.io/badge/Deployment-Cloud%20Run%20Production-0EA5E9?style=flat-square&logo=google-cloud" alt="Deployment" />
+    <img src="https://img.shields.io/badge/Architecture-Clean%20DDD%20%2F%20Hexagonal-8B5CF6?style=flat-square" alt="Compliance / Architecture" />
+    <img src="https://img.shields.io/badge/Security-SHA--256%20Chain%20of%20Custody-0F172A?style=flat-square&logo=shield" alt="Security Audited" />
+  </p>
+</div>
+
+<br>
 
 > **High-availability enterprise system for comprehensive legal case management**, complex litigation orchestration, strict real-time billable hours tracking, ethical conflict-of-interest prevention, and cryptographic document asset custody for elite law firms and multinational legal departments.
 
-🌍 **[View Live Platform (Production) 🟢](https://caselok.vercel.app)**
+<br>
 
-![Caselok Workspace Preview](https://github.com/user-attachments/assets/b1b31fcc-fe69-4c86-b00a-d340f127d534)
-
----
+<div align="center">
+  <h3>🌍 <b><a href="https://caselok.vercel.app">View Live Platform (Production) 🟢</a></b></h3>
+  <br>
+  <img alt="Caselok Preview" src="https://github.com/user-attachments/assets/b1b31fcc-fe69-4c86-b00a-d340f127d534" width="80%" />
+</div>
 
 ## 🎥 LegalTech Environment Demonstration
 
