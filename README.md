@@ -15,7 +15,8 @@
 
 <br>
 
-> **High-availability enterprise system for comprehensive legal case management**, complex litigation orchestration, strict real-time billable hours tracking, ethical conflict-of-interest prevention, and cryptographic document asset custody for elite law firms and multinational legal departments.
+> **Legal Practice Management & Case Workflow Interface.**  
+> A client-side workspace designed for legal case tracking, workflow management, billable hour timers, conflict-of-interest review, and simulated cryptographic document integrity verification.
 
 <br>
 
@@ -28,7 +29,7 @@
 ## 🎥 LegalTech Environment Demonstration
 
 **🎬 Control Panel & Case Orchestration**  
-Exploration of the legal ecosystem: procedural management via Kanban board, real-time billable hours (WIP) telemetry, conflict-of-interest detection engine, and document custody with SHA-256 integrity verification.
+Workspace walkthrough: procedural case tracking via Kanban board, active billable time tracking, conflict-of-interest checking tool, and document management with SHA-256 hash calculations.
 
 https://github.com/user-attachments/assets/265bf4ce-b1ee-480d-b1dc-273adf21cbd1
 
@@ -36,58 +37,58 @@ https://github.com/user-attachments/assets/265bf4ce-b1ee-480d-b1dc-273adf21cbd1
 
 ## 🏛️ System Architecture & Technology Stack
 
-Caselok implements a decoupled architecture based on **Clean Architecture** and **Domain-Driven Design (DDD)** with high-performance client/edge execution. Due to strict data governance policies, corporate confidentiality, and regulatory compliance (GDPR / Organic Law of the Judiciary), distributed persistence microservices, enterprise relational databases, and judicial synchronization pipelines reside in private repositories within isolated virtual networks.
+Caselok is organized around clean frontend architecture and domain modeling patterns with client-side state execution. Production database backends and external court synchronization systems are simulated locally within client repositories to provide an independent, fully interactive environment.
 
-Below is the certified operational technology suite used in the system:
+Below is the technology suite used across the client application:
 
 ### Core & Runtime
-- **`react`** (`^19.0.1`): Latest generation declarative and reactive UI engine for high-density interfaces.
-- **`react-dom`** (`^19.0.1`): Optimized rendering and hydration layer for the DOM.
-- **`typescript`** (`~5.8.2`): Strict static typing across all domain and infrastructure layers.
+- **`react`** (`^19.0.1`): Component-based UI library powering interactive boards and detailed views.
+- **`react-dom`** (`^19.0.1`): DOM rendering and hydration engine.
+- **`typescript`** (`~5.8.2`): Strict static typing across domain models and application state.
 
 ### UI Engine, Styling & Motion
-- **`@tailwindcss/vite`** (`^4.1.14`) & **`tailwindcss`** (`^4.1.14`): Native compilation zero-runtime CSS utility engine.
-- **`motion`** (`^12.23.24`): Orchestrator for micro-interactions, complex state transitions, and layout animations.
-- **`lucide-react`** (`^0.546.0`): Standardized technical vector iconography for legal and financial environments.
-- **`autoprefixer`** (`^10.4.21`): CSS compatibility optimization and vendor prefixes.
+- **`@tailwindcss/vite`** (`^4.1.14`) & **`tailwindcss`** (`^4.1.14`): Utility-first styling framework with clean institutional design tokens.
+- **`motion`** (`^12.23.24`): Smooth transitions for modals, side panels, and Kanban card movements.
+- **`lucide-react`** (`^0.546.0`): Unified vector icon set for interface actions and navigation.
+- **`autoprefixer`** (`^10.4.21`): CSS parsing and vendor prefix automation.
 
-### Inference Engine & Legal AI
-- **`@google/genai`** (`^2.4.0`): Enterprise SDK for integrating advanced Gemini language models in contract analysis, jurisprudential synthesis, and assisted drafting of complex clauses.
+### Inference & Drafting Assistance
+- **`@google/genai`** (`^2.4.0`): Integration with Gemini language models to provide drafting assistance, clause suggestions, and case summaries.
 
 ### Backend, Proxy & Tooling
-- **`express`** (`^4.21.2`): Proxy server for secure request routing, middleware, and security header controls.
-- **`vite`** (`^6.2.3`): Bundling platform, Hot Module Replacement, and production-optimized compilation.
-- **`@vitejs/plugin-react`** (`^5.0.4`): Advanced Fast Refresh integration for React in Vite.
-- **`dotenv`** (`^17.2.3`): Secure loading of environment variables and execution parameters.
-- **`tsx`** (`^4.21.0`): TypeScript runtime for direct execution of the proxy server in development environments.
-- **`esbuild`** (`^0.25.0`): Ultra-fast compiler and minifier for packaging server artifacts.
-- **`@types/node`** (`^22.14.0`) & **`@types/express`** (`^4.17.21`): Types and contracts for Node.js and Express environments.
+- **`express`** (`^4.21.2`): Local proxy server managing routing and local development middleware.
+- **`vite`** (`^6.2.3`): Development server and client asset bundler.
+- **`@vitejs/plugin-react`** (`^5.0.4`): Fast refresh support for React in Vite.
+- **`dotenv`** (`^17.2.3`): Environment variable loader.
+- **`tsx`** (`^4.21.0`): TypeScript execution environment for running the proxy script.
+- **`esbuild`** (`^0.25.0`): Bundler for preparing backend scripts.
+- **`@types/node`** (`^22.14.0`) & **`@types/express`** (`^4.17.21`): Type definitions for Node.js and Express.
 
 ---
 
 ## ⚡ Operational Modules (Deployed)
 
 1. **Procedural Orchestrator & Case Workflow (`KanbanBoard` & `CaseDetailModal`)**
-   - Visual management of the judicial/corporate lifecycle structured into 5 standard procedural stages: *Intake & Compliance*, *Due Diligence & Analysis*, *Drafting & Negotiation*, *Litigation & Court Proceedings*, and *Closing / Enforcement*.
-   - Supervision of amounts in dispute, calculation of budgeted vs. accrued billable hours, risk categorization, and monitoring of preclusive statutory milestones.
+   - Visual board tracking matters across 5 procedural stages: *Intake & Compliance*, *Due Diligence & Analysis*, *Drafting & Negotiation*, *Litigation & Court Proceedings*, and *Closing / Enforcement*.
+   - Overview of disputed amounts, estimated vs. logged hours, risk labels, and upcoming procedural deadlines.
 
 2. **Billable Hours Telemetry & Invoicing (`LiveTimerBar` & `TimeBillingView`)**
-   - Persistent floating stopwatch with dynamic real-time calculation of accrued legal fees based on managing partner or practice group rates.
-   - Work in Progress (WIP) settlement, granular time allocation by procedural category, and generation of billing statements.
+   - Floating timer component with dynamic calculation of accrued billable time based on practice rates.
+   - Work in Progress (WIP) tracking, category breakdowns, and exportable billing summaries.
 
 3. **Ethical Conflict-of-Interest Detection Engine (`ConflictCheckModal` & `conflictDetection`)**
-   - Cross-checking algorithm that analyzes affiliated entities, corporate groups, and adverse parties across active and historical matters.
-   - Automated issuance of compatibility opinions and Clearance certificates with partner signature traceability.
+   - Matching tool comparing corporate entities, associated groups, and opposing parties against active and closed records.
+   - Evaluation reports and printable clearance summaries.
 
 4. **Cryptographic Vault & Document Chain of Custody (`DocumentVault` & `documentSecurity`)**
-   - Secure repository with procedural categorization (*M&A Contracts*, *Legal Opinions*, *Court Pleadings*, *Powers of Attorney*).
-   - Classification under strict confidentiality tiers (*Attorney-Client Privilege*, *Firm Confidential*) and SHA-256 hash generation for evidentiary integrity auditing.
+   - Document repository organized by categories (*M&A Contracts*, *Legal Opinions*, *Court Pleadings*, *Powers of Attorney*).
+   - Confidentiality tags (*Attorney-Client Privilege*, *Firm Confidential*) and local SHA-256 hash generation for file integrity auditing.
 
 5. **Trust Account & Retainer Ledger (`TrustAccountView`)**
-   - Strict administration of third-party funds (*IOLTA / Escrow*), litigation expense retainers, judicial deposits, and transparent disbursement of earned fees.
+   - Ledger interface for tracking client retainer funds (*IOLTA / Escrow*), expense reserves, and fee disbursements.
 
 6. **Legal Artificial Intelligence Copilot (`LegalAICopilotModal`)**
-   - Parametric drafting assistant for critical contractual clauses (CAM/ICC Arbitration, MAC Clauses, Indemnity Caps, Non-Compete Covenants) and legal risk assessment.
+   - Structured drafting assistant providing contextual contract clause templates and legal risk checklists.
 
 ---
 
